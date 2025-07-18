@@ -17,22 +17,22 @@ const heroSlides = [
     image: 'images/p (1).jpg',
     headline: 'Fresh Produce Delivered to Your Door',
     subheadline: 'Order the freshest fruits and vegetables from TengaWega Online.',
-    cta: 'Shop Fresh Produce',
-    ctaLink: '#fresh-produce'
+    cta: 'Find Fresh Fruits',
+    ctaLink: 'pages/products.html'
   },
   {
     image: 'images/p (3).jpg',
     headline: 'Electronic Components & Appliances',
     subheadline: 'Find quality electronics and appliances for your needs.',
-    cta: 'Browse Electronics',
-    ctaLink: '#electronics'
+    cta: 'Go Shopping',
+    ctaLink: 'pages/products.html'
   },
   {
     image: 'images/p (6).jpg',
     headline: 'Distribution Services via TengaWega Drivers',
     subheadline: 'Fast and reliable delivery by our trusted drivers.',
     cta: 'Learn About Delivery',
-    ctaLink: '#delivery'
+    ctaLink: 'pages/about.html'
   },
 ];
 
@@ -299,14 +299,12 @@ function renderFarmProducts() {
     grid.innerHTML = `<div class='col-span-full text-center text-gray-500 py-12 text-lg'>No products found for your search.</div>`;
     return;
   }
-  grid.innerHTML = filtered.map((product, i) => `
-    <div class="bg-white rounded-lg shadow p-4 flex flex-col cursor-pointer animate__animated animate__fadeInUp animate__faster product-card" data-index="${farmProducts.indexOf(product)}">
-      <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover rounded-md mb-4" />
-      <h3 class="font-semibold text-lg mb-1">${product.name}</h3>
-      <p class="text-green-600 font-bold mb-1">${product.price}</p>
-      <p class="text-gray-500 text-sm mb-2">${product.location}</p>
-    </div>
-  `).join('');
+  grid.innerHTML = filtered.map((product, i) => {
+    // Extract numeric price for the button
+    let numericPrice = typeof product.price === 'string' ? parseFloat(product.price.replace(/[^\d.]/g, '')) : product.price;
+    return `
+      <div class=\"bg-white rounded-lg shadow p-4 flex flex-col animate__animated animate__fadeInUp animate__faster product-card\" data-index=\"${farmProducts.indexOf(product)}\">\n      <img src=\"${product.image}\" alt=\"${product.name}\" class=\"w-full h-40 object-cover rounded-md mb-4\" />\n      <h3 class=\"font-semibold text-lg mb-1\">${product.name}</h3>\n      <p class=\"text-green-600 font-bold mb-1\">${product.price}</p>\n      <p class=\"text-gray-500 text-sm mb-2\">${product.location}</p>\n      <button class='bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition mt-2' onclick=\"addToCartFromIndex('${product.name.replace(/'/g, "\\'")}', ${numericPrice}, '${product.image}')\">Add to Cart</button>\n    </div>\n    `;
+  }).join('');
 }
 
 // Product farms
@@ -326,41 +324,6 @@ function renderCategoryFilters() {
   filterBar.innerHTML = productCategories.map(cat =>
     `<button class="px-4 py-2 rounded-full font-medium transition ${activeCategory === cat.value ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-700 hover:bg-green-100'}" data-category="${cat.value}">${cat.label}</button>`
   ).join('');
-}
-
-
-// Product Modal Section
-// Show the modal with product details
-function showProductModal(product) {
-  document.getElementById('modal-image').src = product.image;
-  document.getElementById('modal-name').textContent = product.name;
-  document.getElementById('modal-price').textContent = product.price;
-  document.getElementById('modal-location').textContent = product.location;
-  document.getElementById('modal-description').textContent = product.description;
-  document.getElementById('modal-extra').innerHTML = `
-    <div><span class='font-semibold'>Category:</span> ${product.category}</div>
-    <div><span class='font-semibold'>Stock:</span> ${product.stock}</div>
-    <div><span class='font-semibold'>Seller:</span> ${product.seller}</div>
-    <div><span class='font-semibold'>Tags:</span> ${product.tags.map(tag => `<span class='inline-block bg-green-100 text-green-700 rounded px-2 py-0.5 mr-1'>${tag}</span>`).join('')}</div>
-  `;
-  document.getElementById('product-modal').classList.remove('hidden');
-  if (typeof setBodyScrollLock === 'function') setBodyScrollLock(true);
-}
-
-// Hide the product modal
-function hideProductModal() {
-  document.getElementById('product-modal').classList.add('hidden');
-  if (typeof setBodyScrollLock === 'function') setBodyScrollLock(false);
-}
-
-
-// Utility: Prevent background scroll when modal is open
-function setBodyScrollLock(locked) {
-  if (locked) {
-    document.body.classList.add('overflow-hidden');
-  } else {
-    document.body.classList.remove('overflow-hidden');
-  }
 }
 
 
@@ -405,19 +368,6 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Product modal open/close logic
-  document.getElementById('product-grid').addEventListener('click', function(e) {
-    const card = e.target.closest('.product-card');
-    if (card) {
-      const index = card.getAttribute('data-index');
-      showProductModal(farmProducts[index]);
-    }
-  });
-  document.getElementById('close-modal').addEventListener('click', hideProductModal);
-  document.getElementById('product-modal').addEventListener('click', function(e) {
-    if (e.target === this) hideProductModal();
-  });
-
   // Search bar logic
   const searchInput = document.querySelector('input[placeholder="Search Products..."]');
   if (searchInput) {
@@ -427,3 +377,18 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Add to Cart function for index.html
+function addToCartFromIndex(name, price, image) {
+  // Ensure price is a number
+  price = typeof price === 'string' ? parseFloat(price.replace(/[^\d.]/g, '')) : price;
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, image, qty: 1 });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + " added to cart!");
+}

@@ -21,6 +21,7 @@
           <a href="/pages/about.html" class="text-gray-700 hover:text-green-600 font-medium">About</a>
           <a href="/pages/products.html" class="text-gray-700 hover:text-green-600 font-medium">Products</a>
           <a href="./pages/contact.html" class="text-gray-700 hover:text-green-600 font-medium">Contact</a>
+          <a href="./pages/cart.html" class="text-gray-700 hover:text-green-600 font-medium">Cart</a>
         </div>
         <div class="flex items-center space-x-4">
           <a href="#signin" class="hidden md:inline-block px-4 py-2 text-green-600 border border-green-600 rounded hover:bg-green-50 font-medium transition">Sign In</a>
@@ -39,6 +40,7 @@
         <a href="/pages/about.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">About</a>
         <a href="/pages/products.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">Products</a>
         <a href="/pages/contact.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">Contact</a>
+        <a href="/pages/cart.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">Cart</a>
         <a href="#signin" class="block py-2 text-green-600 font-medium">Sign In</a>
         <a href="#signup" class="block py-2 text-white bg-green-600 rounded font-medium mt-2">Sign Up</a>
       </div>
@@ -94,7 +96,7 @@
             <p class="text-gray-600">Order online or via chat, with secure payment and support.</p>
           </div>
         </div>
-        <a href="#shop" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-lg transition animate__animated animate__pulse animate__delay-4s animate__infinite">Shop Now</a>
+        <a href="/pages/products.html" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-lg transition animate__animated animate__pulse animate__delay-4s animate__infinite">Shop Now</a>
       </div>
     </section>
 
@@ -114,36 +116,32 @@
         </div>
       </div>
       <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <!-- Product cards are in JS -->
-      </div>
-
-      <!-- Product Modal -->
-      <div id="product-modal" class="fixed inset-0 min-h-screen bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative animate__animated animate__fadeInUp overflow-y-auto max-h-[90vh]">
-          <button id="close-modal" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold">&times;</button>
-          <img id="modal-image" src="" alt="Product" class="w-full h-48 object-cover rounded mb-4" />
-          <h3 id="modal-name" class="text-xl font-bold mb-2"></h3>
-          <p id="modal-price" class="text-green-600 font-bold mb-1"></p>
-          <p id="modal-location" class="text-gray-500 text-sm mb-2"></p>
-          <div id="modal-extra" class="mb-4 text-left text-gray-700 text-sm space-y-1"></div>
-          <p id="modal-description" class="text-gray-700 mb-4"></p>
-          <div class="flex gap-4">
-            <button id="add-to-cart" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition">Add to Cart</button>
-            <button id="view-more" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition">View More</button>
-          </div>
+        <!-- Example Product Card -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+          <img src="images/p (6).jpg" alt="Organic Spinach" class="w-full h-40 object-cover rounded-md mb-4" />
+          <h3 class="font-semibold text-lg mb-1">Organic Spinach</h3>
+          <p class="text-green-600 font-bold mb-1">$1.50 / bunch</p>
+          <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition mt-2" onclick="addToCartFromIndex('Organic Spinach', 1.50, 'images/p (6).jpg')">Add to Cart</button>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+          <img src="images/p (6).jpg" alt="Lettuce" class="w-full h-40 object-cover rounded-md mb-4" />
+          <h3 class="font-semibold text-lg mb-1">Lettuce</h3>
+          <p class="text-green-600 font-bold mb-1">$1.30 / head</p>
+          <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition mt-2" onclick="addToCartFromIndex('Lettuce', 1.30, 'images/p (6).jpg')">Add to Cart</button>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+          <img src="images/p (6).jpg" alt="Cabbage" class="w-full h-40 object-cover rounded-md mb-4" />
+          <h3 class="font-semibold text-lg mb-1">Cabbage</h3>
+          <p class="text-green-600 font-bold mb-1">$1.00 / head</p>
+          <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition mt-2" onclick="addToCartFromIndex('Cabbage', 1.00, 'images/p (6).jpg')">Add to Cart</button>
+        </div>
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
+          <img src="images/p (1).jpg" alt="Kale" class="w-full h-40 object-cover rounded-md mb-4" />
+          <h3 class="font-semibold text-lg mb-1">Kale</h3>
+          <p class="text-green-600 font-bold mb-1">$1.20 / bunch</p>
+          <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition mt-2" onclick="addToCartFromIndex('Kale', 1.20, 'images/p (1).jpg')">Add to Cart</button>
         </div>
       </div>
-      
-      <script>
-        // Prevent background scroll when modal is open
-        function setBodyScrollLock(locked) {
-          if (locked) {
-            document.body.classList.add('overflow-hidden');
-          } else {
-            document.body.classList.remove('overflow-hidden');
-          }
-        }
-      </script>
     </section>
 
     <!-- Contact Section -->
@@ -278,6 +276,20 @@
           menu.classList.toggle('hidden');
         });
       });
+    </script>
+
+    <script>
+    function addToCartFromIndex(name, price, image) {
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, image, qty: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
     </script>
 </body>
 </html>

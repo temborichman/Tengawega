@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart | TengaWega Online</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-green-50 text-green-900">
+
+  <!-- Navbar (reuse your existing navbar if using partials) -->
+  <nav class="bg-white shadow-md animate__animated animate__fadeInDown animate__faster">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="text-xl font-bold text-green-600">TengaWega</span>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="/index.html" class="text-gray-700 hover:text-green-600 font-medium">Home</a>
+        <a href="/pages/about.html" class="text-gray-700 hover:text-green-600 font-medium">About</a>
+        <a href="/pages/products.html" class="text-gray-700 hover:text-green-600 font-medium">Products</a>
+        <a href="/pages/contact.html" class="text-gray-700 hover:text-green-600 font-medium">Contact</a>
+        <a href="/pages/cart.html" class="text-gray-700 hover:text-green-600 font-medium">Cart</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-extrabold text-green-700 mb-8 text-center">Your Cart</h1>
+    <div id="cart-container"></div>
+  </main>
+
+  <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const container = document.getElementById('cart-container');
+      if (cart.length === 0) {
+        container.innerHTML = `<div class='text-center text-gray-500 py-12 text-lg'>Your cart is empty.</div>`;
+        return;
+      }
+      let total = 0;
+      container.innerHTML = `
+        <div class="bg-white rounded-2xl shadow p-6">
+          <table class="w-full text-left mb-6">
+            <thead>
+              <tr>
+                <th class="py-2">Product</th>
+                <th class="py-2">Price</th>
+                <th class="py-2">Quantity</th>
+                <th class="py-2">Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${cart.map((item, i) => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                return `
+                  <tr class="border-b">
+                    <td class="py-2 flex items-center gap-3">
+                      <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded" />
+                      <span>${item.name}</span>
+                    </td>
+                    <td class="py-2">USD$${item.price.toFixed(2)}</td>
+                    <td class="py-2">${item.qty}</td>
+                    <td class="py-2">USD$${subtotal.toFixed(2)}</td>
+                    <td class="py-2"><button onclick="removeFromCart(${i})" class="text-red-600 hover:underline">Remove</button></td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+          <div class="text-right text-xl font-bold text-green-700">Total: USD$${total.toFixed(2)}</div>
+        </div>
+      `;
+    }
+    function removeFromCart(index) {
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+    renderCart();
+  </script>
+
+  <!-- Footer (reuse yours or include separately) -->
+  <footer class="text-center py-6 text-sm text-gray-500">
+    &copy; <span id="footer-year"></span> TengaWega Online. All rights reserved.
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
