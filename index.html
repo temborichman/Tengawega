@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangawega online landing page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    
+
+    <!-- nav bar -->
+    <nav class="bg-white shadow-md animate__animated animate__fadeInDown animate__faster">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl font-bold text-green-600">TengaWega</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="/index.html" class="text-gray-700 hover:text-green-600 font-medium">Home</a>
+          <a href="/pages/about.html" class="text-gray-700 hover:text-green-600 font-medium">About</a>
+          <a href="/pages/products.html" class="text-gray-700 hover:text-green-600 font-medium">Products</a>
+          <a href="./pages/contact.html" class="text-gray-700 hover:text-green-600 font-medium">Contact</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="#signin" class="hidden md:inline-block px-4 py-2 text-green-600 border border-green-600 rounded hover:bg-green-50 font-medium transition">Sign In</a>
+          <a href="#signup" class="hidden md:inline-block px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 font-medium transition">Sign Up</a>
+          <div class="md:hidden">
+            <button id="menu-btn" class="text-gray-700 focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <a href="/index.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">Home</a>
+        <a href="/pages/about.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">About</a>
+        <a href="/pages/products.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">Products</a>
+        <a href="/pages/contact.html" class="block py-2 text-gray-700 hover:text-green-600 font-medium">Contact</a>
+        <a href="#signin" class="block py-2 text-green-600 font-medium">Sign In</a>
+        <a href="#signup" class="block py-2 text-white bg-green-600 rounded font-medium mt-2">Sign Up</a>
+      </div>
+    </nav>
+
+
+    <!-- hero section -->
+    <section class="relative w-full max-w-7xl mx-auto mt-8 animate__animated animate__fadeIn animate__slower">
+      <div class="relative overflow-hidden rounded-lg shadow-lg animate__animated animate__zoomIn animate__delay-1s">
+        <div id="hero-carousel" class="relative w-full h-80 md:h-96">
+          <!-- Slides will be injected here by JS -->
+        </div>
+        <!-- Search bar overlay -->
+        <form class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-2/3 lg:w-1/2 z-20">
+          <div class="flex bg-white bg-opacity-90 rounded-lg shadow-lg overflow-hidden">
+            <input type="text" placeholder="Search for products, sellers, or categories..." class="flex-grow px-4 py-3 text-gray-700 focus:outline-none" />
+            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 font-semibold">Search</button>
+          </div>
+        </form>
+        <!-- Carousel controls -->
+        <button id="prev-slide" class="hidden lg:flex absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 focus:outline-none z-10">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button id="next-slide" class="hidden lg:flex absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 rounded-full p-2 shadow hover:bg-opacity-100 focus:outline-none z-10">
+          <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <!-- Carousel indicators -->
+      <div id="carousel-indicators" class="flex justify-center mt-4 space-x-2"></div>
+    </section>
+
+
+
+    <!-- About Us Section -->
+    <section class="max-w-7xl mx-auto mt-16 px-4 animate__animated animate__fadeInUp animate__delay-3s">
+      <div class="w-full bg-green-50 rounded-lg shadow text-center py-12 px-4 md:px-12 animate__animated animate__fadeIn animate__slower">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-green-700 animate__animated animate__fadeInDown animate__faster">About TengaWega?</h2>
+        <p class="text-gray-700 text-lg mb-10 animate__animated animate__fadeInUp animate__delay-1s">TengaWEga delivers the freshest farm produce straight to your doorstep.
+            We support local farmers and sellers through an easy-to-use platform with fast, reliable delivery.
+            Order via web, WhatsApp, Messenger, or phone and enjoy convenience, quality, and friendly service every time you shop for fresh, local produce.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-8 mb-10">
+          <div class="flex-1 bg-white rounded-lg shadow p-8 mx-2 animate__animated animate__zoomIn animate__delay-1s transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+            <h3 class="font-semibold text-green-600 mb-2 text-lg md:text-xl">Fresh & Quality Products</h3>
+            <p class="text-gray-600">Sourced directly from trusted suppliers and local sellers.</p>
+          </div>
+          <div class="flex-1 bg-white rounded-lg shadow p-8 mx-2 animate__animated animate__zoomIn animate__delay-2s transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+            <h3 class="font-semibold text-green-600 mb-2 text-lg md:text-xl">Fast & Flexible Delivery</h3>
+            <p class="text-gray-600">Get your orders quickly, your way—delivered by TengaWega drivers.</p>
+          </div>
+          <div class="flex-1 bg-white rounded-lg shadow p-8 mx-2 animate__animated animate__zoomIn animate__delay-3s transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl">
+            <h3 class="font-semibold text-green-600 mb-2 text-lg md:text-xl">Easy, Secure Shopping</h3>
+            <p class="text-gray-600">Order online or via chat, with secure payment and support.</p>
+          </div>
+        </div>
+        <a href="#shop" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg text-lg transition animate__animated animate__pulse animate__delay-4s animate__infinite">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="max-w-7xl mx-auto mt-16 px-4 animate__animated animate__fadeInUp animate__delay-4s">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-green-700 mb-8 text-center">Our Featured Products</h2>
+      <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <form class="w-full md:w-1/2">
+          <input type="text" placeholder="Search Products..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" />
+        </form>
+        <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
+          <button class="px-4 py-2 rounded-full bg-green-600 text-white font-medium hover:bg-green-700 transition">All</button>
+          <button class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-green-100 transition">Leafy Greens</button>
+          <button class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-green-100 transition">Root Vegetables</button>
+          <button class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-green-100 transition">Legumes</button>
+          <button class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 font-medium hover:bg-green-100 transition">Fruit Vegetables</button>
+        </div>
+      </div>
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Product cards are in JS -->
+      </div>
+
+      <!-- Product Modal -->
+      <div id="product-modal" class="fixed inset-0 min-h-screen bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative animate__animated animate__fadeInUp overflow-y-auto max-h-[90vh]">
+          <button id="close-modal" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold">&times;</button>
+          <img id="modal-image" src="" alt="Product" class="w-full h-48 object-cover rounded mb-4" />
+          <h3 id="modal-name" class="text-xl font-bold mb-2"></h3>
+          <p id="modal-price" class="text-green-600 font-bold mb-1"></p>
+          <p id="modal-location" class="text-gray-500 text-sm mb-2"></p>
+          <div id="modal-extra" class="mb-4 text-left text-gray-700 text-sm space-y-1"></div>
+          <p id="modal-description" class="text-gray-700 mb-4"></p>
+          <div class="flex gap-4">
+            <button id="add-to-cart" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition">Add to Cart</button>
+            <button id="view-more" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition">View More</button>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+        // Prevent background scroll when modal is open
+        function setBodyScrollLock(locked) {
+          if (locked) {
+            document.body.classList.add('overflow-hidden');
+          } else {
+            document.body.classList.remove('overflow-hidden');
+          }
+        }
+      </script>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="max-w-6xl mx-auto mt-24 mb-16 px-4 py-16 rounded-3xl shadow-2xl bg-white animate__animated animate__fadeInUp animate__delay-5s">
+      <div class="flex flex-col md:flex-row gap-10">
+        <!-- Left: Contact Info -->
+        <div class="md:w-1/2 flex flex-col justify-center mb-8 md:mb-0">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-2 text-green-700 mb-7">Contact Us</h2>
+          <p class="mb-6 text-green-900/80">We'd love to hear from you! Reach out for support, feedback, or partnership opportunities.</p>
+          <div class="mb-6 space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m0 0l4-4m-4 4l4 4"/></svg></span>
+              <a href="mailto:info@tengawega.com" class="text-green-800 hover:underline">info@tengawega.com</a>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10l1.553 1.553a2 2 0 002.828 0l.707-.707a2 2 0 012.828 0l.707.707a2 2 0 002.828 0L21 10"/></svg></span>
+              <span class="text-green-800">+263 700 123 456</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-100 text-green-600"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0l-4.243 4.243"/></svg></span>
+              <span class="text-green-800">Harare, Zimbabwe</span>
+            </div>
+          </div>
+          <div class="mb-6">
+            <h4 class="font-semibold text-green-700 mb-2">Follow us</h4>
+            <div class="flex space-x-3">
+              <a href="#" aria-label="Facebook" class="text-green-600 hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg></a>
+              <a href="#" aria-label="Twitter" class="text-green-600 hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.13 4.07 7.38 1.64 4.7c-.37.64-.58 1.39-.58 2.19 0 1.51.77 2.84 1.95 3.62-.72-.02-1.39-.22-1.98-.55v.06c0 2.11 1.5 3.87 3.5 4.27-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.12 2.91 3.99 2.94A8.6 8.6 0 012 19.54a12.13 12.13 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.37-.02-.56A8.72 8.72 0 0024 4.59a8.48 8.48 0 01-2.54.7z"/></svg></a>
+              <a href="#" aria-label="Instagram" class="text-green-600 hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 110 10.5 5.25 5.25 0 010-10.5zm0 1.5a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm6.13.62a1.13 1.13 0 11-2.25 0 1.13 1.13 0 012.25 0z"/></svg></a>
+              <a href="https://wa.me/263700123456" aria-label="WhatsApp" class="text-green-600 hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.1 3.2 5.077 4.363.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.421h-.001a9.87 9.87 0 01-4.946-1.354l-.355-.211-3.682.964.985-3.588-.231-.368A9.86 9.86 0 012.1 12.043C2.032 6.616 6.617 2.032 12.042 2.032c2.652 0 5.146 1.034 7.022 2.911a9.868 9.868 0 012.912 7.021c-.003 5.426-4.588 10.01-10.013 10.01m8.413-18.423A11.815 11.815 0 0012.042.032C5.495.032.032 5.495.032 12.043c0 2.123.555 4.199 1.607 6.032L.057 23.925a1.001 1.001 0 001.225 1.225l5.85-1.582a11.96 11.96 0 005.91 1.507h.005c6.547 0 12.01-5.463 12.01-12.01 0-3.204-1.249-6.218-3.517-8.487"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Contact Form -->
+        <div class="md:w-1/2 bg-green-50 rounded-2xl shadow-lg p-8 flex flex-col justify-center">
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-green-800 font-semibold mb-1">Name</label>
+                <input type="text" class="w-full px-4 py-3 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-400 focus:outline-none bg-white text-green-900" placeholder="Your Name" required />
+              </div>
+              <div>
+                <label class="block text-green-800 font-semibold mb-1">Email</label>
+                <input type="email" class="w-full px-4 py-3 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-400 focus:outline-none bg-white text-green-900" placeholder="you@email.com" required />
+              </div>
+              <div>
+                <label class="block text-green-800 font-semibold mb-1">Phone</label>
+                <input type="text" class="w-full px-4 py-3 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-400 focus:outline-none bg-white text-green-900" placeholder="Phone Number" />
+              </div>
+              <div>
+                <label class="block text-green-800 font-semibold mb-1">Subject</label>
+                <input type="text" class="w-full px-4 py-3 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-400 focus:outline-none bg-white text-green-900" placeholder="Subject" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-green-800 font-semibold mb-1">Message</label>
+              <textarea class="w-full px-4 py-3 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-400 focus:outline-none bg-white text-green-900" rows="5" placeholder="Type your message here..." required></textarea>
+            </div>
+            <button type="submit" class="w-full md:w-auto px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-lg transition">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative max-w-7xl mx-auto mt-16 mb-6 rounded-2xl shadow-2xl overflow-hidden animate__animated animate__fadeInUp animate__delay-6s" style="background-image: url('images/f (9).jpg'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-gradient-to-br from-green-900/90 via-green-900/80 to-green-800/80"></div>
+      <div class="relative z-10 px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 text-green-100">
+          <!-- About -->
+          <div>
+            <h3 class="text-2xl font-bold mb-2 text-green-600">TengaWega Online</h3>
+            <p class="text-white text-sm mb-4">Your trusted online shop for fresh produce, electronics, and fast delivery. Supporting local sellers and making shopping easy for everyone.</p>
+          </div>
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-lg font-semibold mb-3 text-green-600">Quick Links</h4>
+            <ul class="space-y-2 text-white text-sm">
+              <li><a href="/index.html" class="hover:text-green-600">Home</a></li>
+              <li><a href="/pages/products.html" class="hover:text-green-600">Shop</a></li>
+              <li><a href="/pages/about.html" class="hover:text-green-600">About Us</a></li>
+              <li><a href="/pages/contact.html" class="hover:text-green-600">Contact</a></li>
+              <li><a href="#" class="hover:text-green-600">FAQs</a></li>
+            </ul>
+          </div>
+          <!-- Contact Info -->
+          <div>
+            <h4 class="text-lg font-semibold mb-3 green-600">Contact Us</h4>
+            <ul class="space-y-2 text-white text-sm">
+              <li><span class="font-semibold text-white">Phone:</span> <a href="tel:+263700123456" class="hover:text-green-600">+263 700 123 456</a></li>
+              <li><span class="font-semibold text-white">Email:</span> <a href="mailto:info@tengawega.com" class="hover:text-green-600">info@tengawega.com</a></li>
+              <li><span class="font-semibold text-white">WhatsApp:</span> <a href="https://wa.me/263700123456" class="hover:text-green-600">Chat on WhatsApp</a></li>
+              <li><span class="font-semibold text-white hover:text-green-600">Location:</span> Harare, Zimbabwe</li>
+            </ul>
+          </div>
+          <!-- More Info -->
+          <div>
+            <h4 class="text-lg font-semibold mb-3 text-green-600">More</h4>
+            <ul class="space-y-2 text-white text-sm">
+              <li><a href="#" class="hover:text-green-600">How It Works</a></li>
+              <li><a href="#" class="hover:text-green-600">Become a Seller</a></li>
+              <li><a href="#" class="hover:text-green-600">Delivery Info</a></li>
+              <li><a href="#" class="hover:text-green-600">Terms & Conditions</a></li>
+              <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mt-10">
+          <div class="flex space-x-5 mb-4">
+            <a href="#" aria-label="Facebook" class="text-white hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.632.771-1.632 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg></a>
+            <a href="#" aria-label="Twitter" class="text-white hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.59-2.47.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04A4.28 4.28 0 0016.11 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.99C7.69 9.13 4.07 7.38 1.64 4.7c-.37.64-.58 1.39-.58 2.19 0 1.51.77 2.84 1.95 3.62-.72-.02-1.39-.22-1.98-.55v.06c0 2.11 1.5 3.87 3.5 4.27-.36.1-.74.16-1.13.16-.28 0-.54-.03-.8-.08.54 1.68 2.12 2.91 3.99 2.94A8.6 8.6 0 012 19.54a12.13 12.13 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.37-.02-.56A8.72 8.72 0 0024 4.59a8.48 8.48 0 01-2.54.7z"/></svg></a>
+            <a href="#" aria-label="Instagram" class="text-white hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 110 10.5 5.25 5.25 0 010-10.5zm0 1.5a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm6.13.62a1.13 1.13 0 11-2.25 0 1.13 1.13 0 012.25 0z"/></svg></a>
+            <a href="https://wa.me/263700123456" aria-label="WhatsApp" class="text-white hover:text-green-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.1 3.2 5.077 4.363.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 5.421h-.001a9.87 9.87 0 01-4.946-1.354l-.355-.211-3.682.964.985-3.588-.231-.368A9.86 9.86 0 012.1 12.043C2.032 6.616 6.617 2.032 12.042 2.032c2.652 0 5.146 1.034 7.022 2.911a9.868 9.868 0 012.912 7.021c-.003 5.426-4.588 10.01-10.013 10.01m8.413-18.423A11.815 11.815 0 0012.042.032C5.495.032.032 5.495.032 12.043c0 2.123.555 4.199 1.607 6.032L.057 23.925a1.001 1.001 0 001.225 1.225l5.85-1.582a11.96 11.96 0 005.91 1.507h.005c6.547 0 12.01-5.463 12.01-12.01 0-3.204-1.249-6.218-3.517-8.487"/></svg></a>
+          </div>
+          <hr class="border-t border-green-400/30 my-8 w-full">
+          <div class="text-center text-green-600 text-xs">
+            &copy; <span id="footer-year"></span> TengaWega Online. All rights reserved.
+          </div>
+        </div>
+      </div>
+      <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+      </script>
+    </footer>
+
+    <script src="script.js">
+      // Hamburger menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      });
+    </script>
+</body>
+</html>
